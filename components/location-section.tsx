@@ -9,7 +9,7 @@ const highlights = [
   {
     icon: PlaneTakeoff,
     title: "Nearest Airport",
-    description: "Herat International Airport (HEAT), 10 km east of the city center, with regional connections.",
+    description: "Herat International Airport (HEA), 10 km east of the city center, with regional connections.",
   },
   {
     icon: Compass,
@@ -20,36 +20,46 @@ const highlights = [
 
 export function LocationSection() {
   return (
-    <section className="py-16 bg-[#F5F3EE]">
-      <div className="container mx-auto px-4">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] items-center">
-          <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/40">
+    <section className="py-20 lg:py-28 bg-[#FAF8F4]">
+      <div className="container mx-auto px-4 lg:px-8">
+        {/* Section header */}
+        <div className="text-center mb-14">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="h-px w-12 bg-[#C9A96E]" />
+            <span className="text-[#8B1538] text-sm font-semibold tracking-[0.2em] uppercase">Plan Your Arrival</span>
+            <div className="h-px w-12 bg-[#C9A96E]" />
+          </div>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Where to Find Herat City</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Herat rests along the storied Silk Road, framed by desert horizons and lush valleys fed by the Hari River.
+          </p>
+        </div>
+
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] items-start">
+          <div className="rounded-2xl overflow-hidden shadow-xl border border-white/40 group">
             <iframe
               src="https://www.openstreetmap.org/export/embed.html?bbox=62.155%2C34.305%2C62.265%2C34.385&layer=mapnik&marker=34.348%2C62.1997"
               title="Map of Herat City"
-              className="w-full aspect-[4/3]"
+              className="w-full aspect-[4/3] group-hover:opacity-90 transition-opacity"
               loading="lazy"
             />
           </div>
 
           <div>
-            <p className="text-[#8B1538] text-sm font-semibold mb-2 uppercase tracking-wide">Plan Your Arrival</p>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Where to Find Herat City</h2>
-            <p className="text-gray-700 leading-relaxed mb-8">
-              Herat rests along the storied Silk Road, framed by desert horizons and lush valleys fed by the Hari River.
+            <p className="text-gray-600 leading-relaxed mb-8">
               The Old City is compact and walkable, with centuries-old caravanserais leading to artisan workshops and
               saffron markets. Use this guide to orient yourself before you arrive.
             </p>
 
             <div className="grid gap-4">
               {highlights.map(({ icon: Icon, title, description }) => (
-                <div key={title} className="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm">
-                  <div className="rounded-full bg-[#8B1538]/10 text-[#8B1538] p-3">
-                    <Icon className="w-6 h-6" />
+                <div key={title} className="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm border border-gray-50 hover:shadow-md hover:border-[#8B1538]/10 transition-all duration-300 group cursor-pointer">
+                  <div className="rounded-xl bg-gradient-to-br from-[#8B1538]/10 to-[#C9A96E]/10 text-[#8B1538] p-3.5 group-hover:from-[#8B1538] group-hover:to-[#8B1538] group-hover:text-white transition-all duration-300">
+                    <Icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+                    <h3 className="text-base font-semibold text-gray-900 mb-1">{title}</h3>
+                    <p className="text-sm text-gray-500 leading-relaxed">{description}</p>
                   </div>
                 </div>
               ))}
